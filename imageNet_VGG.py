@@ -3,8 +3,12 @@ from keras.preprocessing.image import img_to_array
 from keras.applications.vgg16 import preprocess_input
 from keras.applications.vgg16 import decode_predictions
 from keras.applications.vgg16 import VGG16
+from keras.utils.vis_utils import plot_model
 # load the model
 model = VGG16()
+print(model.summary())
+plot_model(model, to_file='vgg.png')
+
 # load an image from file
 image = load_img('mug.jpg', target_size=(224, 224))
 # convert the image pixels to a numpy array
